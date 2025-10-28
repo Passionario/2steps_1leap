@@ -94,6 +94,6 @@ Do we also try to pay off the blackmailer?
 - @nothing: No, this should be enough.
 
 @nothing
-on-arrival: blackmail_timer = 2; revelation = 1
+on-arrival: reveal_timer = 2; revelation = 1
 
 We refuse to be blackmailed [? if blackmail_seen >= 2: any further ?]. Perhaps it's a matter of principles, perhaps we simply can't afford to. Either way, the hammer will drop soon.
