@@ -1,7 +1,7 @@
 title: Exposed!
 subtitle: The blackmailer made good on their threats...
 new-page: true
-view-if: year >= 1929 and spd_total_corruption >= 1 and blackmail_timer = 0 and revelation >= 1
+view-if: year >= 1929 and spd_total_corruption >= 1 and reveal_timer = 0 and revelation >= 1
 on-arrival: extra_justice += (corrupt_judiciary * 5); extra_interior += (corrupt_interior * 5);  extra_military += (corrupt_military * 5); extra_police += corrupt_prussian_police; coup_progress += corrupt_judiciary; left_coup_progress += corrupt_judiciary; interior_police_loyalty -= (corrupt_interior / 10); prussian_police_loyalty -= (corrupt_prussian_police / 20); reichswehr_loyalty -= (corrupt_military / 20); pro_republic -= 8
 face-image: img/weltbune.jpg
 total-visits: 1
