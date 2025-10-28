@@ -478,6 +478,7 @@ Q.panzerkreuzer_failed = 0;
 Q.unemployment_insurance_seen = 0;
 Q.blutmai = 0;
 Q.unemployment_insurance_threshold = 10;
+Q.schleichers_schemes_timer = 0;
 
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
@@ -556,7 +557,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'emergency_cuts', 'unemployment_insurance', 'blackmail', 'reveal',
             'sa_ban', 'sh_ban', 'papen_chancellor', 'hitler_comeback', 
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute', 'thalmann_trial', 
-            'high_inflation', 'banking_crisis', 'march_on_berlin', 'understanding_enemy', 'meme_collapse'];
+            'high_inflation', 'banking_crisis', 'march_on_berlin', 'understanding_enemy', 'meme_collapse', 'schleichers_schemes'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
@@ -815,7 +816,7 @@ go-to: 1928_main
 May history have mercy on us, for the world will not.
 
 @1928_main
-audio: shuffle music/FruhlingsliedMendelssohn.mp3 music/AHB.mp3 music/derlindenbaum.mp3 music/ZSZF.mp3 music/arbeiter_marseille.mp3 music/wannwir.mp3 music/Internationale-de.ogg
+audio: shuffle music/FruhlingsliedMendelssohn.mp3 music/AHB.mp3 music/derlindenbaum.mp3 music/ZSZF.mp3 music/arbeiter_marseille.mp3 music/wannwir.mp3 music/Internationale-de.ogg music/SozialistenMarsch.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
