@@ -18,7 +18,7 @@ However, leftists in the party argue that the WTB plan is merely a bandage over 
 Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition. [? if (neorevisionism > 0 and eu = 0): Finally, the new Neo-Revisionist faction seeks to address the crisis by strengthening economic and political ties to other European nations in order to lessen the burden on ours. ?]
 
 - @support_centrist: Support the Centrist view.
-- @support_true_centrist: Support the other Centrist view.
+#- @support_true_centrist: Support the other Centrist view.
 - @support_labor: Support the Labor view.
 - @support_left: Support the Left view.
 - @support_moderate: Support the Reformist view.
@@ -32,23 +32,6 @@ on-arrival: center_strength += 5; center_dissent -= 5; labor_dissent += 10; wtb_
 Woytinsky and the trade unions vehemently criticize the centrists for their policy. The workers are starving; are we going to callously abandon them and side with bourgeois austerity? On the other hand, the centrists criticize Woytinsky for promising the workers false hope; their position is that nothing can be done to alleviate the depression. They also speak of the fear of another round of hyperinflation that may result from deficit spending.
 
 Our policy course is currently that nothing can be done to alleviate the depression.
-
-@support_true_centrist
-subtitle: A global crisis demands a global response.
-view-if: (centrist_reform >= 3 and historical_mode == 0)
-choose-if: fr_uk_seen and scandi_seen and austria_seen and comintern_seen and us_seen
-unavailable-subtitle: We need more connections to socialist and communist parties across the world. [? if not us_seen: Yes, even that one. ?]
-on-arrival: center_strength += 6; center_dissent += 3; labor_dissent += 3; reformist_dissent += 1; true_centrist_support += 1
-go-to: true_adopted if true_centrist_support >= 2; true_support if true_centrist_support < 2
-
-@true_support
-
-Only by through worker solidarity can we protect each other against capitalist depredations. Labor is somewhat critical of our efforts. The German workers are starving; are we going to abandon them while we chase an utopian dream? On the other hand, traditionalist centrists lambast their colleagues for sowing discord under the guise of promoting unity.
-
-@true_adopted
-on-arrival: true_centrist_adopted = 1; labor_dissent += 5; reformist_dissent += 5; center_strength += 10; center_dissent -= 20; left_dissent -= 5; economic_plan = 4
-
-With our hard work, we have finally convinced the majority of the party to adopt the Centrist plan of unity! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries, as well as the Foreign ministry. ?] [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
 
 @support_labor
 subtitle: Call for increased public works and fiscal stimulus.
@@ -124,3 +107,21 @@ With our hard work, we have convinced the majority of the party to adopt the neo
 @defer
 
 We hold off on making a decision on economic policy, awaiting more information. Woytinsky and his supporters argue that inaction is a form of action of its own. 
+
+################## Secret True Centrist Marxism Path
+#@support_true_centrist
+#subtitle: A global crisis demands a global response.
+#view-if: (centrist_reform >= 3 and historical_mode == 0)
+#choose-if: fr_uk_seen and scandi_seen and austria_seen and comintern_seen and us_seen
+#unavailable-subtitle: We need more connections to socialist and communist parties across the world. [? if not us_seen: Yes, even that one. ?]
+#on-arrival: center_strength += 6; center_dissent += 3; labor_dissent += 3; reformist_dissent += 1; true_centrist_support += 1
+#go-to: true_adopted if true_centrist_support >= 2; true_support if true_centrist_support < 2
+#
+#@true_support
+#
+#Only by through worker solidarity can we protect each other against capitalist depredations. Labor is somewhat critical of our efforts. The German workers are starving; are we going to #abandon them while we chase an utopian dream? On the other hand, traditionalist centrists lambast their colleagues for sowing discord under the guise of promoting unity.
+#
+#@true_adopted
+#on-arrival: true_centrist_adopted = 1; labor_dissent += 5; reformist_dissent += 5; center_strength += 10; center_dissent -= 20; left_dissent -= 5; economic_plan = 4
+#
+#With our hard work, we have finally convinced the majority of the party to adopt the Centrist plan of unity! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries, as well as the Foreign ministry. ?] [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
