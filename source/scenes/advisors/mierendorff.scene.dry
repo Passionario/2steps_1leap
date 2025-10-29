@@ -13,6 +13,7 @@ Carlo Mierendorff is the founder of the neo-revisionist ideological tendency, an
 - @iron_front_buildup
 - @form_iron_front
 - @nazi_urgency
+- @neorevplan
 - @root: Return to main
 
 @iron_front_buildup
@@ -41,3 +42,23 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; nazi_urgency += 1; rb_militancy += 0.01; nsdap_workers -= 4*(1-dissent);
 
 We have begun a propaganda campaign to warn our members away from the Nazis.
+
+@neorevplan
+title: Build support for the Neo-Revisionist economic plan.
+subtitle: Call for the formation of the European Union.
+view-if: black_thursday_seen == 1 and economic_plan == 0 and eu == 0
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; neorevplan_support += 1; neorevisionist_strength += 8; neorevisionist_dissent -= 5; left_dissent += 5; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5;
+go-to: adopt_neorev if neorevplan_support >= 2; support_neorev_progress if neorevplan_support < 2
+
+@support_neorev_progress
+
+We attempt to convince the party to support the creation of a European Union. Advocates of the plan argue that this plan will distribute the economic burden more equitably and bring long-term benefits. Opponents in other factions criticize the plan for being impractical and a deviation from Marxist principles.
+
+We have not yet adopted the plan. More work needs to be done.
+
+@adopt_neorev
+on-arrival: neorevisionist_strength += 10; neorevisionist_dissent -= 10; neorevplan_adopted = 1; economic_plan = 5; left_dissent += 8; labor_dissent += 8; center_dissent += 5; reformist_dissent += 5;
+
+With our hard work, we have convinced the majority of the party to adopt the neorevisionist plan to form the European Union! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Foreign ministry. ?]
