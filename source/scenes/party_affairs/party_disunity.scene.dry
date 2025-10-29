@@ -78,7 +78,7 @@ Giving the neorevisionists more influence will cause increased dissent from the 
 
 @do_nothing
 title: Let the factions argue with themselves.
-on-arrival: labor_dissent += 1; left_dissent += 1; center_dissent += 1; reformist_dissent += 1
+on-arrival: labor_dissent += 1; left_dissent += 1; center_dissent += 1; reformist_dissent += 1; centrist_reform += 1
 
 Let the factions bicker; perhaps dissent is healthy for the party.
 
