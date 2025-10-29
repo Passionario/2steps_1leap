@@ -50,7 +50,6 @@ The programs of the Nordic socialists involve active government intervention in 
 
 @comintern
 subtitle: -1 resources
-view-if: comintern_persuaded = 0
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; kpd_relation += 5; communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1; comintern_spy += 1
@@ -58,13 +57,14 @@ on-arrival: resources -= 1; kpd_relation += 5; communist_coalition += 1 if comin
 The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
 
 @comintern2
+view-if: comintern_persuaded = 0 and true_centrist_adopted and comintern_seen
 subtitle: -1 resources
-view-if: comintern_persuaded > 0 
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_relation += 8; communist_coalition += 1; comintern_persuaded += 1
+choose-if: historical_mode = 0 and nightmare = 0 and (in_left_front or in_popular_front) and resources >= 1
+unavailable-subtitle: [? if (historical_mode or nightmare): It is impossible that Stalin and the Comintern could be moved on their policy. ?] [? if not (in_left_front or in_popular_front): Even our own country's KPD is not working with us. ?] [? if resources <= 0: Not enough resources. ?]
+on-arrival: comintern_persuaded += 1; kpd_relation += 8*(1-dissent); kpd_coalition_dissent -= 1; resources -= 1
+max-visits: 1
 
-The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
+The violent and acrimonous history between communists and socialists goes beyond mere policy disagreements, but our current cooperation with KPD is a persuasive counterexample, as are the material incentives we provide to key individuals. Perhaps even this chasm can eventually be bridged.
 
 @america
 view-if: olympics_won == 0
@@ -98,6 +98,8 @@ We do not need the international contacts at the moment.
 @unity
 title: Take steps to form United International.
 view-if: true_centrist_adopted = 1 and united_international = 0 and unity_progress < 3
+choose-if: comintern_persuaded >= 1
+unavailable-subtitle: We need to persuade Comintern to cooperate with us.
 on-arrival: unity_progress += 1; kpd_relation += 3;
 
 Leftist history is rife with schisms and betrayals, and mending these scars will take a lot of hard work and sacrifices. Being workers, we are accustomed to both. Only together can we overcome this.
