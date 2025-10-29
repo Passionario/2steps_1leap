@@ -3,9 +3,9 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: international_relations_timer <= 0
-on-arrival: month_actions += 1; international_relations_timer += 6; international_relations_timer -= 2 if (true_centrist_adopted and united_international = 0)
+on-arrival: month_actions += 1; international_relations_timer += 12; 
 card-image: img/international.jpg
-max-visits: 10
+max-visits: 6
 
 At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
@@ -13,11 +13,11 @@ At the Labor and Socialist International, we can forge contacts with our fratern
 - @austria: Learn organization and street fighting from the Austrian SDAPÖ.
 - @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
 - @comintern: Forget the Second International - embed a spy in the Comintern's conference.
-- @comintern2: Work on mending the rift between the Second International and Comintern.
+#- @comintern2: Work on mending the rift between the Second International and Comintern.
 - @america: Contact the Socialist party of America.
 - @america2: Contact the Socialist party of America.
-- @unity
-- @unity2 
+#- @unity
+#- @unity2 
 - @return: We do not need international contacts at the moment.
 - @easy_discard
 
@@ -56,15 +56,15 @@ on-arrival: resources -= 1; kpd_relation += 5; communist_coalition += 1 if comin
 
 The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
 
-@comintern2
-view-if: comintern_persuaded = 0 and true_centrist_adopted and comintern_seen
-subtitle: -1 resources
-choose-if: historical_mode = 0 and nightmare = 0 and (in_left_front or in_popular_front) and resources >= 1
-unavailable-subtitle: [? if (historical_mode or nightmare): It is impossible that Stalin and the Comintern could be moved on their policy. ?] [? if not (in_left_front or in_popular_front): Even our own country's KPD is not working with us. ?] [? if resources <= 0: Not enough resources. ?]
-on-arrival: comintern_persuaded += 1; kpd_relation += 8*(1-dissent); kpd_coalition_dissent -= 1; resources -= 1
-max-visits: 1
-
-The violent and acrimonous history between communists and socialists goes beyond mere policy disagreements, but our current cooperation with KPD is a persuasive counterexample, as are the material incentives we provide to key individuals. Perhaps even this chasm can eventually be bridged.
+#@comintern2
+#view-if: comintern_persuaded = 0 and true_centrist_adopted and comintern_seen
+#subtitle: -1 resources
+#choose-if: historical_mode = 0 and nightmare = 0 and (in_left_front or in_popular_front) and resources >= 1
+#unavailable-subtitle: [? if (historical_mode or nightmare): It is impossible that Stalin and the Comintern could be moved on their policy. ?] [? if not (in_left_front or in_popular_front): Even our own country's KPD is not working with us. ?] [? if resources <= 0: Not enough resources. ?]
+#on-arrival: comintern_persuaded += 1; kpd_relation += 8*(1-dissent); kpd_coalition_dissent -= 1; resources -= 1
+#max-visits: 1
+#
+#The violent and acrimonous history between communists and socialists goes beyond mere policy disagreements, but our current cooperation with KPD is a persuasive counterexample, as are the material incentives we provide to key individuals. Perhaps even this chasm can eventually be bridged.
 
 @america
 view-if: olympics_won == 0
@@ -89,28 +89,28 @@ max-visits: 1
 The Socialist Party of America is swelling with new members who were inspired by our Olympian athletes' performance and impassioned speeches in support of socialism. They are extremely grateful to us, and promise full support once they become a force in US politics. Our party members are invigorated by this development.
 
 @reduce
-on-arrival: international_relations_timer += 6;
+#on-arrival: international_relations_timer += 6;
 
 We do not need the international contacts at the moment.
 
 ########### Secret Golden Centrist Marxism Path
-
-@unity
-title: Take steps to form United International.
-view-if: true_centrist_adopted = 1 and united_international = 0 and unity_progress < 3
-choose-if: comintern_persuaded >= 1
-unavailable-subtitle: We need to persuade Comintern to cooperate with us.
-on-arrival: unity_progress += 1; kpd_relation += 3;
-
-Leftist history is rife with schisms and betrayals, and mending these scars will take a lot of hard work and sacrifices. Being workers, we are accustomed to both. Only together can we overcome this.
-
-@unity2
-title: We can finally form United International.
-subtitle: Workers of the world, unite!
-view-if: unity_progress >= 3 and united_international = 0
-on-arrival: united_international = 1; nationalism -= 15; capital_strike_progress += 5; coup_progress += 5; left_dissent -= 25; center_dissent -= 25; labor_dissent -= 15; coalition_dissent += 2; kpd_coalition_dissent -= 2;  kpd_relation += 10; rb_strength += 300; 
-max-visits: 1
-
-Finally, our hard work has paid off. In response to the global economic crisis brought by capitalism, the Second International and Comintern have joined forces with each other, as well as with socialist and communist parties in previously unaligned countries. On this day, the United International is born.
-
-The bourgeouise is terrified by the news, but there is little they can do in the face of such display of solidarity. For the first time in history, the workers of the world can bargain as one, march as one, and if necessary, fight as one.
+#
+#@unity
+#title: Take steps to form United International.
+#view-if: true_centrist_adopted = 1 and united_international = 0 and unity_progress < 3
+#choose-if: comintern_persuaded >= 1
+#unavailable-subtitle: We need to persuade Comintern to cooperate with us.
+#on-arrival: unity_progress += 1; kpd_relation += 3;
+#
+#Leftist history is rife with schisms and betrayals, and mending these scars will take a lot of hard work and sacrifices. Being workers, we are accustomed to both. Only together can we overcome this.
+#
+#@unity2
+#title: We can finally form United International.
+#subtitle: Workers of the world, unite!
+#view-if: unity_progress >= 3 and united_international = 0
+#on-arrival: united_international = 1; nationalism -= 15; capital_strike_progress += 5; coup_progress += 5; left_dissent -= 25; center_dissent -= 25; labor_dissent -= 15; coalition_dissent += 2; kpd_coalition_dissent -= 2;  kpd_relation += 10; rb_strength += 300; 
+#max-visits: 1
+#
+#Finally, our hard work has paid off. In response to the global economic crisis brought by capitalism, the Second International and Comintern have joined forces with each other, as well as with socialist and communist parties in previously unaligned countries. On this day, the United International is born.
+#
+#The bourgeouise is terrified by the news, but there is little they can do in the face of such display of solidarity. For the first time in history, the workers of the world can bargain as one, march as one, and if necessary, fight as one.
