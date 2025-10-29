@@ -22,6 +22,8 @@ We have already formulated an economic plan. Now we have to implement it.
 - @moderate_plan_limited_budget
 - @neorevisionist_plan
 - @neorevisionist_plan2
+- @true_centrist_plan
+- @true_centrist_plan2
 - @root: Do not implement the economic plan.
 - @easy_discard
 - @cancel_advisor_action
@@ -150,7 +152,7 @@ title: Empower workers to take over factories.
 subtitle: We can promise to legalize factory occupations, giving the factories over to worker unions. This is highly confrontational, and would likely provoke a reaction from right-wing militants as well as capitalists.
 unavailable-subtitle: [? if left_strength <= reformist_strength + neorevisionist_strength : The bulk of the party does not support this radical action. ?] [? if judicial_reform < 3 : The judiciary would oppose this action. ?] [? if rb_militancy < 0.25 : If we increased the strength of our paramilitary forces, perhaps we could do this. ?] [? if works_councils < 1 : We need the support of the works councils first. ?]
 choose-if: left_strength > reformist_strength + neorevisionist_strength and (judicial_reform >= 3 or rb_militancy >= 0.25) and works_councils >= 1
-on-arrival: nationalization_progress += 1; capital_strike_progress += 6; coup_progress += 5; unemployed -= 3 if unemployed >= 6; unemployed -= 1.5 if works_councils >= 3 and unemployed > 4; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); coalition_dissent += 2; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; workers_nsdap -= 5*(1-dissent); unemployed_nsdap -= 5*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5; old_middle_spd -= 10; factory_takeovers += 1; economy_goal_completed += 1; kpd_relation += 5*(1-dissent); inflation += 3; economic_growth += 1 if economic_growth < 3;
+on-arrival: nationalization_progress += 1; capital_strike_progress += 6; coup_progress += 5; unemployed -= 3 if unemployed >= 6; unemployed -= 1.5 if works_councils >= 3 and unemployed > 4; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); coalition_dissent += 2; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; workers_nsdap -= 5*(1-dissent); unemployed_nsdap -= 5*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5; old_middle_spd -= 10; factory_takeovers += 1; economy_goal_completed += 1; kpd_relation += 10; inflation += 3; economic_growth += 1 if economic_growth < 3;
 achievement: wirtschaftspolitik
 
 The capitalists are, predictably, up in arms about our policy of legalizing factory occupations. They call it illegal expropriation, and it is. Nevertheless, it is clear that they have failed, and we must take radical action.
@@ -233,3 +235,19 @@ Along with France, Great Britain, and many other states of Western and Eastern E
 A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment, as well as job prospects for the unemployed. Our preparatory work on the construction of transportation and energy networks will finally pay off.
 
 Fascist Italy remains a problem, and the Soviet Union also lies outside the system. But for now, there is new hope for peace and prosperity throughout the continent.
+
+################### Secret Golden True Centrist Path
+
+@true_centrist_plan
+title: Seek international support for the Centrist unity plan.
+view-if: true_centrist_adopted and united_international = 0
+go-to: international_relations
+
+@true_centrist_plan2
+title: Implement the Centrist unity plan.
+subtitle: The full might of United International is behind us.
+view-if: true_centrist_adopted == 1 and united_international >= 1
+choose-if: united_international = 1000
+unavailable-subtitle: Good job getting his far, but it's not possible in this version. 
+
+Now that we stand united, we can finally address the economic crisis. What shall we do?
