@@ -9,7 +9,7 @@ tags: party_affairs, govt_affairs
 
 = Addressing the Economic Crisis
 
-Our party is wracked as to how to deal with the economic crisis. From the centrist faction, Hilferding argues that the economic crisis must be allowed to play out, because it is simply a part of the cyclic nature of capitalism. [? if centrist_reform >= 3: Yet even within his own faction there are opposing voices declaring that the core principle of centrist Marxism is unity, not inaction. ?] [? if (centrist_reform >= 3 and fr_uk_seen and scandi_seen and austria_seen and comintern_persuaded and us_seen): Indeed, our efforts to forge bonds with socialist and communist parties all over the globe have inspired many to call for the formation of a United International. ?]
+Our party is wracked as to how to deal with the economic crisis. From the centrist faction, Hilferding argues that the economic crisis must be allowed to play out, because it is simply a part of the cyclic nature of capitalism. [? if centrist_reform >= 3: Yet even within his own faction there are opposing voices declaring that the core principle of centrist Marxism is unity, not inaction. ?] [? if (centrist_reform >= 3 and fr_uk_seen and scandi_seen and austria_seen and comintern_seen and us_seen): Indeed, our efforts to forge bonds with socialist and communist parties all over the globe have inspired many to call for the formation of a United International. ?]
 
 From labor, the economist Wladimir Woytinsky argues that we must pursue a massive public works program to reduce unemployment and stimulate demand, perhaps including deficit spending. His opponents, like Hilferding, argue that this plan will cause a return to hyper-inflation, and that it would not even help the economy. In addition, according to Hilferding, Woytinsky's strategy is opposed to Marxist principles. The so-called WTB plan, after its chief supporters Woytinsky, Tarnow, and Baade, is receiving more attention within the party.
 
@@ -36,7 +36,7 @@ Our policy course is currently that nothing can be done to alleviate the depress
 @support_true_centrist
 subtitle: A global crisis demands a global response.
 view-if: (centrist_reform >= 3 and historical_mode == 0)
-choose-if: fr_uk_seen and scandi_seen and austria_seen and comintern_persuaded and us_seen
+choose-if: fr_uk_seen and scandi_seen and austria_seen and comintern_seen and us_seen
 unavailable-subtitle: We need more connections to socialist and communist parties across the world. [? if not us_seen: Yes, even that one. ?]
 on-arrival: center_strength += 6; center_dissent += 3; labor_dissent += 3; reformist_dissent += 1; true_centrist_support += 1
 go-to: true_adopted if true_centrist_support >= 2; true_support if true_centrist_support < 2
