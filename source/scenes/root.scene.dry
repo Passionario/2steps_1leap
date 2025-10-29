@@ -108,6 +108,12 @@ Q.extra_interior = 0;
 Q.neorevplan_support = 0;
 Q.neorevplan_adopted = 0;
 Q.centrist_reform = 0;
+Q.fr_uk_contacted = 0;
+Q.scandi_contacted = 0;
+Q.austria_contacted = 0;
+Q.us_contacted = 0;
+Q.comintern_spy = 0;
+Q.comintern_persuaded = 0;
 Q.true_centrist_support = 0;
 Q.true_centrist_adopted = 0;
 
