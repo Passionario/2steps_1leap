@@ -15,7 +15,7 @@ From labor, the economist Wladimir Woytinsky argues that we must pursue a massiv
 
 However, leftists in the party argue that the WTB plan is merely a bandage over the fundamental flaws of capitalism. They argue that the crisis is an opportunity to end capitalism through massive nationalizations of industry, and finally bring our country to socialism.
 
-Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition. [? if (neorevisionism >= 0 and eu = 0): Finally, the new Neo-Revisionist faction seeks to address the crisis by strengthening economic and political ties to other European nations in order to lessen the burden on ours. ?]
+Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition. [? if (neorevisionism > 0 and eu = 0): Finally, the new Neo-Revisionist faction seeks to address the crisis by strengthening economic and political ties to other European nations in order to lessen the burden on ours. ?]
 
 - @support_centrist: Support the Centrist view.
 - @support_true_centrist: Support the other Centrist view.
@@ -106,7 +106,7 @@ With our hard work, we have convinced the majority of the party to adopt the mod
 
 @support_neorev
 subtitle: Call for the formation of the European Union.
-view-if: neorevisionism >= 1 and historical_mode == 0 and eu == 0
+view-if: (neorevisionism >= 0 and eu = 0 and historical_mode = 0)
 on-arrival: neorevplan_support += 1; neorevisionist_strength += 8; neorevisionist_dissent -= 5; left_dissent += 5; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5;
 go-to: adopt_neorev if neorevplan_support >= 2; support_neorev_progress if neorevplan_support < 2
 
