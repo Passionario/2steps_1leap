@@ -22,8 +22,8 @@ We have already formulated an economic plan. Now we have to implement it.
 - @moderate_plan_limited_budget
 - @neorevisionist_plan
 - @neorevisionist_plan2
-- @true_centrist_plan
-- @true_centrist_plan2
+#- @true_centrist_plan
+#- @true_centrist_plan2
 - @root: Do not implement the economic plan.
 - @easy_discard
 - @cancel_advisor_action
@@ -237,17 +237,17 @@ A major component of the union is the free movement of people and goods across t
 Fascist Italy remains a problem, and the Soviet Union also lies outside the system. But for now, there is new hope for peace and prosperity throughout the continent.
 
 ################### Secret Golden True Centrist Path
-
-@true_centrist_plan
-title: Seek international support for the Centrist unity plan.
-view-if: true_centrist_adopted and united_international = 0
-go-to: international_relations
-
-@true_centrist_plan2
-title: Implement the Centrist unity plan.
-subtitle: The full might of United International is behind us.
-view-if: true_centrist_adopted == 1 and united_international >= 1
-choose-if: united_international = 1000
-unavailable-subtitle: Good job getting his far, but it's not possible in this version. 
-
-Now that we stand united, we can finally address the economic crisis. What shall we do?
+#
+#@true_centrist_plan
+#title: Seek international support for the Centrist unity plan.
+#view-if: true_centrist_adopted and united_international = 0
+#go-to: international_relations
+#
+#@true_centrist_plan2
+#title: Implement the Centrist unity plan.
+#subtitle: The full might of United International is behind us.
+#view-if: true_centrist_adopted == 1 and united_international >= 1
+#choose-if: united_international = 1000
+#unavailable-subtitle: Good job getting his far, but it's not possible in this version. 
+#
+#Now that we stand united, we can finally address the economic crisis. What shall we do?
