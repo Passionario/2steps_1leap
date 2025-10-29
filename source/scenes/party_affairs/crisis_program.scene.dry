@@ -9,20 +9,20 @@ tags: party_affairs, govt_affairs
 
 = Addressing the Economic Crisis
 
-Our party is wracked as to how to deal with the economic crisis. From the centrist faction, Hilferding argues that the economic crisis must be allowed to play out, because it is simply a part of the cyclic nature of capitalism.
+Our party is wracked as to how to deal with the economic crisis. From the centrist faction, Hilferding argues that the economic crisis must be allowed to play out, because it is simply a part of the cyclic nature of capitalism. [? if centrist_reform >= 3: Yet even within his own faction there are opposing voices declaring that the core principle of centrist Marxism is unity, not inaction. ?] [? if (centrist_reform >= 3 and fr_uk_seen and scandi_seen and austria_seen and comintern_persuaded and us_seen): Indeed, our efforts to forge bonds with socialist and communist parties all over the globe have inspired many to call for the formation of a United International. ?]
 
-From labor, the economist Wladimir Woytinsky argues that we must pursue a massive public works program to reduce unemployment and stimulate demand, perhaps including deficit spending. His opponents, like Hilferding, argue that this plan will cause a return to hyper-inflation, and that it would not even help the economy. In addition, according to Hilferding, Woytinsky's strategy is opposed to Marxist principles.
-
-The so-called WTB plan, after its chief supporters Woytinsky, Tarnow, and Baade, is receiving more attention within the party.
+From labor, the economist Wladimir Woytinsky argues that we must pursue a massive public works program to reduce unemployment and stimulate demand, perhaps including deficit spending. His opponents, like Hilferding, argue that this plan will cause a return to hyper-inflation, and that it would not even help the economy. In addition, according to Hilferding, Woytinsky's strategy is opposed to Marxist principles. The so-called WTB plan, after its chief supporters Woytinsky, Tarnow, and Baade, is receiving more attention within the party.
 
 However, leftists in the party argue that the WTB plan is merely a bandage over the fundamental flaws of capitalism. They argue that the crisis is an opportunity to end capitalism through massive nationalizations of industry, and finally bring our country to socialism.
 
-Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition.
+Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition. [? if (neorevisionism >= 0 and eu = 0): Finally, the new Neo-Revisionist faction seeks to address the crisis by strengthening economic and political ties to other European nations in order to lessen the burden on ours. ?]
 
 - @support_centrist: Support the Centrist view.
+- @support_true_centrist: Support the other Centrist view.
 - @support_labor: Support the Labor view.
 - @support_left: Support the Left view.
 - @support_moderate: Support the Reformist view.
+- @suppost_neorev: Support the Neo-Revisionist view.
 - @defer: Defer making a decision until we have more information.
 
 @support_centrist
@@ -33,6 +33,22 @@ Woytinsky and the trade unions vehemently criticize the centrists for their poli
 
 Our policy course is currently that nothing can be done to alleviate the depression.
 
+@support_true_centrist
+subtitle: A global crisis demands a global response.
+view-if: (centrist_reform >= 3 and historical_mode == 0)
+choose-if: fr_uk_seen and scandi_seen and austria_seen and comintern_persuaded and us_seen
+unavailable-subtitle: We need more connections to socialist and communist parties across the world. [? if not us_seen: Yes, even that one. ?]
+on-arrival: center_strength += 6; center_dissent += 3; labor_dissent += 3; reformist_dissent += 1; true_centrist_support += 1
+go-to: true_adopted if true_centrist_support >= 2; true_support if true_centrist_support < 2
+
+@true_support
+
+Only by through worker solidarity can we protect each other against capitalist depredations. Labor is somewhat critical of our efforts. The German workers are starving; are we going to abandon them while we chase an utopian dream? On the other hand, traditionalist centrists lambast their colleagues for sowing discord under the guise of promoting unity.
+
+@true_adopted
+on-arrival: true_centrist_adopted = 1; labor_dissent += 5; reformist_dissent += 5; center_strength += 10; center_dissent -= 20; left_dissent -= 5; economic_plan = 4
+
+With our hard work, we have finally convinced the majority of the party to adopt the Centrist plan of unity! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries, as well as the Foreign ministry. ?] [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
 
 @support_labor
 subtitle: Call for increased public works and fiscal stimulus.
@@ -87,6 +103,23 @@ We have not yet adopted the plan. More work needs to be done.
 on-arrival: reformist_strength += 10; reformist_dissent -= 10; left_dissent += 8; labor_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; z_relation += 5;
 
 With our hard work, we have convinced the majority of the party to adopt the moderate job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?]
+
+@support_neorev
+subtitle: Call for the formation of the European Union.
+view-if: neorevisionism >= 1 and historical_mode == 0 and eu == 0
+on-arrival: neorevplan_support += 1; neorevisionist_strength += 8; neorevisionist_dissent -= 5; left_dissent += 5; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5;
+go-to: adopt_neorev if neorevplan_support >= 2; support_neorev_progress if neorevplan_support < 2
+
+@support_neorev_progress
+
+We attempt to convince the party to support the creation of a European Union. Advocates of the plan argue that this plan will distribute the economic burden more equitably and bring long-term benefits. Opponents in other factions criticize the plan for being impractical and a deviation from Marxist principles.
+
+We have not yet adopted the plan. More work needs to be done.
+
+@adopt_neorev
+on-arrival: neorevisionist_strength += 10; neorevisionist_dissent -= 10; neorevplan_adopted = 1; economic_plan = 5; left_dissent += 8; labor_dissent += 8; center_dissent += 5; reformist_dissent += 5;
+
+With our hard work, we have convinced the majority of the party to adopt the neorevisionist plan to form the European Union! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Foreign ministry. ?]
 
 @defer
 
