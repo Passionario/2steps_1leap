@@ -105,6 +105,11 @@ Q.extra_justice = 0;
 Q.extra_military = 0;
 Q.extra_police = 0;
 Q.extra_interior = 0;
+Q.neorevplan_support = 0;
+Q.neorevplan_adopted = 0;
+Q.centrist_reform = 0;
+Q.true_centrist_support = 0;
+Q.true_centrist_adopted = 0;
 
 Q.strike_term_seen = 0;
 // 0 = normal difficulty, 1 = hard mode, 2 = hard mode no saves
