@@ -3,18 +3,21 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: international_relations_timer <= 0
-on-arrival: month_actions += 1; international_relations_timer += 12;
+on-arrival: month_actions += 1; international_relations_timer += 6; international_relations_timer -= 2 if (true_centrist_adopted and united_international = 0)
 card-image: img/international.jpg
-max-visits: 3
+max-visits: 10
 
 At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
 - @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
 - @austria: Learn organization and street fighting from the Austrian SDAPÖ.
 - @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
-- @comintern: Forget the second international - embed a spy in the Comintern's conference.
+- @comintern: Forget the Second International - embed a spy in the Comintern's conference.
+- @comintern2: Work on mending the rift between the Second International and Comintern.
 - @america: Contact the Socialist party of America.
 - @america2: Contact the Socialist party of America.
+- @unity
+- @unity2 
 - @return: We do not need international contacts at the moment.
 - @easy_discard
 
@@ -22,7 +25,7 @@ At the Labor and Socialist International, we can forge contacts with our fratern
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 1; reformist_strength += 5; pacifism += 1; moderate_plan_support += 1
+on-arrival: resources -= 1; west_relation += 1; reformist_strength += 5; pacifism += 1; moderate_plan_support += 1; fr_uk_contacted = 1
 
 The socialists of France and Britain can influence their governments to be friendlier towards Germany. Hopefully they will reduce our reparations burden.
 
@@ -31,7 +34,7 @@ subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 audio: music/vienna.mp3
-on-arrival: left_strength += 5; radicalization += 1; rb_militancy += 0.03; resources -= 1; austria_relation += 1; sdapo_strength += 1 if austrian_parliament_seen = 1
+on-arrival: left_strength += 5; radicalization += 1; rb_militancy += 0.03; resources -= 1; austria_relation += 1; sdapo_strength += 1 if austrian_parliament_seen = 1; austria_contacted = 1
 
 Our Reichsbanner can learn much in paramilitary organization and training from the Austrian Republikanischer Schutzbund (Republican Protection Units), the paramilitary branch of the Austrian social democrats.
 
@@ -41,15 +44,25 @@ Our Reichsbanner can learn much in paramilitary organization and training from t
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
+on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1; scandi_contacted = 1
 
 The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
 
 @comintern
 subtitle: -1 resources
+view-if: comintern_persuaded = 0
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1
+on-arrival: resources -= 1; kpd_relation += 5; communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1; comintern_spy += 1
+
+The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
+
+@comintern2
+subtitle: -1 resources
+view-if: comintern_persuaded > 0 
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; kpd_relation += 8; communist_coalition += 1; comintern_persuaded += 1
 
 The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
 
@@ -59,9 +72,9 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 audio: music/Star_Spangled_Banner_1854.ogg
-on-arrival: resources -= 1
+on-arrival: resources -= 1; us_contacted += 1
 
-The Socialist Party of America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us.
+The Socialist Party of America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us - at least, for now.
 
 @america2
 view-if: olympics_won >= 1
@@ -69,12 +82,33 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 audio: music/Star_Spangled_Banner_1854.ogg
-on-arrival: resources -= 1; left_dissent -= 12; labor_dissent -= 12; center_dissent -= 12; neorevisionist_dissent -= 12; workers_spd += 9*(1-dissent); new_middle_spd += 6*(1-dissent); old_middle_spd += 6*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); kpd_relation += 5*(1-dissent); pacifism += 2; nationalism -= 5
+on-arrival: resources -= 1; left_dissent -= 12; labor_dissent -= 12; center_dissent -= 12; neorevisionist_dissent -= 12; workers_spd += 9*(1-dissent); new_middle_spd += 6*(1-dissent); old_middle_spd += 6*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); kpd_relation += 5*(1-dissent); pacifism += 2; nationalism -= 5; us_contacted += 1
 achievement: amerikanischen
 max-visits: 1
 
 The Socialist Party of America is swelling with new members who were inspired by our Olympian athletes' performance and impassioned speeches in support of socialism. They are extremely grateful to us, and promise full support once they become a force in US politics. Our party members are invigorated by this development.
 
 @reduce
+on-arrival: international_relations_timer += 6;
 
 We do not need the international contacts at the moment.
+
+########### Secret Golden Centrist Marxism Path
+
+@unity
+title: Take steps to form United International.
+view-if: true_centrist_adopted = 1 and united_international = 0 and unity_progress < 3
+on-arrival: unity_progress += 1; kpd_relation += 3;
+
+Leftist history is rife with schisms and betrayals, and mending these scars will take a lot of hard work and sacrifices. Being workers, we are accustomed to both. Only together can we overcome this.
+
+@unity2
+title: We can finally form United International.
+subtitle: Workers of the world, unite!
+view-if: unity_progress >= 3 and united_international = 0
+on-arrival: united_international = 1; nationalism -= 15; capital_strike_progress += 5; coup_progress += 5; left_dissent -= 25; center_dissent -= 25; labor_dissent -= 15; coalition_dissent += 2; kpd_coalition_dissent -= 2;  kpd_relation += 10; rb_strength += 300; 
+max-visits: 1
+
+Finally, our hard work has paid off. In response to the global economic crisis brought by capitalism, the Second International and Comintern have joined forces with each other, as well as with socialist and communist parties in previously unaligned countries. On this day, the United International is born.
+
+The bourgeouise is terrified by the news, but there is little they can do in the face of such display of solidarity. For the first time in history, the workers of the world can bargain as one, march as one, and if necessary, fight as one.
