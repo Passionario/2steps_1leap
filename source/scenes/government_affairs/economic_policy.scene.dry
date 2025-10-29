@@ -21,6 +21,7 @@ We have already formulated an economic plan. Now we have to implement it.
 - @moderate_plan
 - @moderate_plan_limited_budget
 - @neorevisionist_plan
+- @neorevisionist_plan2
 - @root: Do not implement the economic plan.
 - @easy_discard
 - @cancel_advisor_action
@@ -206,7 +207,7 @@ achievement: wirtschaftspolitik
 
 ######################## Neorev plan
 
-@european_union
+@neorevisionist_plan
 title: Take steps to form a "European Union" in accordance with our plan.
 subtitle: Is a "United States of Europe" possible?
 unavailable-subtitle: [? if foreign_minister_party != "SPD": We do not hold the Foreign ministry. ?] [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
@@ -218,8 +219,8 @@ Forming a "United States of Europe" has long been part of the Social Democratic 
 
 [? if works_program = 1: In the meantime, we have taken the opportunity to sign a number of agreements for joint projects related to transportation and energy. Building new trans-European networks of roads and pipelines will not only help the future European Union, but will also provide employment for our workers in the more immediate term. ?]
 
-@european_union_2
-title: We can sign a treaty to form a European Union and complete our economic plan!
+@neorevisionist_plan2
+title: We can sign a treaty to form a European Union and fulfill our economic plan!
 unavailable-subtitle: [? if foreign_minister_party != "SPD": As soon as we get the Foreign Ministry, that is. ?] 
 view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2 and eu = 0 and neorevplan_adopted
 choose-if: foreign_minister_party = "SPD" 
