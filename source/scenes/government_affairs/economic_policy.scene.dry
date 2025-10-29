@@ -20,6 +20,7 @@ We have already formulated an economic plan. Now we have to implement it.
 - @nationalize_2
 - @moderate_plan
 - @moderate_plan_limited_budget
+- @neorevisionist_plan
 - @root: Do not implement the economic plan.
 - @easy_discard
 - @cancel_advisor_action
@@ -202,3 +203,32 @@ achievement: wirtschaftspolitik
 [? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
 
 [? if in_popular_front or in_left_front: The KPD opposes the economic plan, seeing it as a rescue of capitalism rather than a step towards real socialism. ?]
+
+######################## Neorev plan
+
+@european_union
+title: Take steps to form a "European Union" in accordance with our plan.
+subtitle: Is a "United States of Europe" possible?
+unavailable-subtitle: [? if foreign_minister_party != "SPD": We do not hold the Foreign ministry. ?] [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
+view-if: reparations <= -2 and eu_progress < 2 and eu = 0 and neorevplan_adopted
+choose-if: west_relation >= 5 and east_relation >= 4 and foreign_minister_party = "SPD" 
+on-arrival: eu_progress += 1; west_relation += 1; inflation -= 1; works_program += 1
+
+Forming a "United States of Europe" has long been part of the Social Democratic foreign program, and now it's also a core part of our economic plan. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
+
+[? if works_program = 1: In the meantime, we have taken the opportunity to sign a number of agreements for joint projects related to transportation and energy. Building new trans-European networks of roads and pipelines will not only help the future European Union, but will also provide employment for our workers in the more immediate term. ?]
+
+@european_union_2
+title: We can sign a treaty to form a European Union!
+unavailable-subtitle: [? if foreign_minister_party != "SPD": As soon as we get the Foreign Ministry, that is. ?] 
+view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2 and eu = 0 and neorevplan_adopted
+choose-if: foreign_minister_party = "SPD" 
+on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 2; economic_growth += 1 if economic_growth < 3;
+max-visits: 1
+achievement: eu
+
+Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a European Union! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
+
+A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment, as well as job prospects for the unemployed. Our preparatory work on the construction of transportation and energy networks will finally pay off.
+
+Fascist Italy remains a problem, and the Soviet Union also lies outside the system. But for now, there is new hope for peace and prosperity throughout the continent.
