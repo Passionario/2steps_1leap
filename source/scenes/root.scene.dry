@@ -116,6 +116,8 @@ Q.comintern_spy = 0;
 Q.comintern_persuaded = 0;
 Q.true_centrist_support = 0;
 Q.true_centrist_adopted = 0;
+Q.unity_progress = 0;
+Q.united_international = 0;
 
 Q.strike_term_seen = 0;
 // 0 = normal difficulty, 1 = hard mode, 2 = hard mode no saves
