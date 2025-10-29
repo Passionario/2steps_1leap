@@ -74,6 +74,7 @@ The Soviets are pleased that we have sent them aid, and have not asked for anyth
 
 - @kpd: Ask if Moscow could help repair our relations with the KPD.
 - @wittorf: Do the Soviets know about the Wittorf Affair? Do they know that we know?
+- @mend_comintern: Ask for help in repairing relations between Comintern and the Second International.
 - @root: Do not mention the KPD.
 
 @soviet_economic_aid_no
@@ -94,6 +95,13 @@ on-arrival: wittorf_soviet_union = 1; kpd_relation += 6*(1-dissent); kpd_foreign
 max-visits: 1
 
 Of course Stalin and the various leaders of the Comintern know about the Wittorf Affair, but they do not seem to know that we know as well. The Comintern was planning to build a narrative around the affair that absolves Thälmann, but perhaps now they will be less inclined to defend him.
+
+@mend_comintern
+view-if: comintern_persuaded = 0 and true_centrist_adopted
+choose-if: historical_mode = 0 and nightmare = 0
+unavailable-subtitle: It is impossible that Stalin and the Comintern could be moved on their policy.
+on-arrival: comintern_persuaded = 1; kpd_relation += 6*(1-dissent); kpd_foreign_seen = 1
+max-visits: 1
 
 
 @customs_union
@@ -212,20 +220,21 @@ subtitle: Is a "United States of Europe" possible?
 unavailable-subtitle: [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
 view-if: reparations <= -2 and eu_progress < 2 and eu = 0
 choose-if: west_relation >= 5 and east_relation >= 4
-on-arrival: eu_progress += 1; west_relation += 1
+on-arrival: eu_progress += 1; west_relation += 1; works_program += 1 if neorevplan_adopted; unemployed -= 1 if (unemployed >= 10 and neorevplan_adopted); workers += 2 if neorevplan_adopted; workers_spd += 6*(1-dissent) if neorevplan_adopted;
 
 Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
 
+[? if neorevplan_adopted: In the meantime, we have taken the opportunity to sign a number of agreements for joint projects related to transportation and energy. Building new trans-European networks of roads and pipelines will not only help the future European Union, but will also provide employment for our workers in the more immediate term. ?]
 
 @european_union_2
 title: We can sign a treaty to form a European Union!
 view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2 and eu = 0
-on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
+on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3; economic_growth += 1 if neorevplan_adopted
 max-visits: 1
 achievement: eu
 
 Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a European Union! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
 
-A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment.
+A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment. [? if neorevplan_adopted: Our preparatory work on the construction of transportation and energy networks will finally pay off. ?]
 
 Fascist Italy remains a problem, and the Soviet Union also lies outside the system. But for now, there is new hope for peace and prosperity throughout the continent.
