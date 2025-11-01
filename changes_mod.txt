@@ -1,33 +1,8 @@
+Nov 2025:
 
-Nov 2024:
+Updated the mod to match 1.3 base game.
+Added Neo-Revisionist economic plan.
 
-Updated the mod to match 1.0 base game.
+Prior history:
 
-v.0.5.
-
-- Interior Police update (added corruption and fabricating case against far right)
-- Judiciary update (added corruption)
-- Prussian Bulwark update (added corruption and arming the police)
-- Forced deportation can result in Hitler's death if there are enough guns on the scene.
-- Added option to attack Hitler with enough corruption and firepower.
-- Added a second, sci-fi way to kill Hitler. Search deeper and have a radio with you.
-- Military Policy update (rearmament now causes banking crisis)
-- Added a new Bad Ending if you continue to rearm the military after all warnings
-
-v.0.4:
-
-New and updated events:
-- 1932 Olympics (NEW! invest in sports early and often)
-- Altona Bloody Sunday (added unwise choice for militarized RB)
-
-Updated cards:
-- Party Organizations (extra payoff for sports)
-- Fundraising update (can go to 0 or above 5, with consequences)
-- Military update (extra options if you go very high or very low)
-- Interior Police update (extra payoff for more investigations of far right)
-- Prussian Bulwark light update (improved feedback for purging bureaucracy)
-- Streetfighting update (a lot more fighting)
-
-Other:
-- Historic mode is now a separate setting
-- New achievements
+[REDACTED]
